@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block Title %}Mailing List{% endblock%}
+
+{% block nav1 %}dark{% endblock %}
+{% block nav2 %}dark{% endblock %}
+{% block nav3 %}dark{% endblock %}
+{% block colour2 %}dark{% endblock %}
+{% block colour1 %}dark{% endblock %}
+{% block navTitle %}dark{% endblock %}
+{% block content %}
+    <style>
+        input[type=submit] {
+            background-color: #0078FF;
+            border-radius: 2px;
+            border-color: #0078FF;
+            border-style: none;
+            color: white;
+            width: 75px;
+            height: 35px;
+        }
+
+        input[type=text] {
+            width: 250px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #eee;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 35px;
+            border-radius: 2px;
+        }
+    </style>
+    <center>
+    <br>
+    <h4>Mailing List</h4>
+    <p>Join our Mailing list to be the first notified on, tech news, software and more! (you can opt out anytime)</p>
+    <br>
+    <form name="mailingform" action="/joinml" onsubmit="return validate()" method="POST">
+        <input type="text" name="email" placeholder="Enter your email address...">
+        <input type="submit" value="Join">
+    </form>
+    </center>
+    <script>
+        const validate = () => {
+            let form = document.forms["mailingform"]
+
+            if (form['email'].value == "") {
+                alert("Please fill out the form correctly!")
+                return false
+            } 
+
+            var regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+            var email = form['email'].value
+            if (!regex.test(email)) {
+                alert("Invalid email!")
+                return false
+            }
+            return true
+        }
+    </script>
+{% endblock %}
