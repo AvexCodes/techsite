@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block Title %}Home{% endblock %}
+
+{% block nav1 %}white{% endblock %}
+{% block nav2 %}white{% endblock %}
+{% block nav3 %}white{% endblock %}
+{% block colour2 %}white{% endblock %}
+{% block colour1 %}white{% endblock %}
+{% block navTitle %}white{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            /*background: url('https://www.newegg.com/insider/wp-content/uploads/2018/10/ABS_BUILD_2.jpg') no-repeat;*/
+            background: url('/background') no-repeat;
+            background-size: cover;
+            
+        }
+
+        .intro {
+            margin-left: 6.5%;
+            margin-top: 10%;
+        }
+
+        .btn {
+            background-color: #1c87ff;
+            color: white;
+            width: 100px;
+            height: 40px;
+            transition: 500ms;
+        }
+
+        .btn:hover {
+            color: white;
+            background-color: #0078FF;
+            width: 320px;
+            transition: 500ms;
+        }
+
+        .btn-a {
+            list-style: none;
+            color: #fff;
+        }
+
+        .btn-a:hover {
+            color: white;
+        }
+    </style>
+    <br>
+
+    <div class="intro">
+        <h3 class="text-white">Easy tech help</h3>
+        <p class="text-white">Reliable, quick tech help Australian based.</p>
+        <a class="btn-a" href="/inquires"><button class="btn" href="/inquire">Inquire</button></a>
+    </div>
+
+
+{% endblock %}
