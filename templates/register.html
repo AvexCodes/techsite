@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block Title %}Register{% endblock %}
+
+{% block nav1 %}white{% endblock %}
+{% block nav2 %}white{% endblock %}
+{% block nav3 %}white{% endblock %}
+{% block colour2 %}white{% endblock %}
+{% block colour1 %}white{% endblock %}
+{% block navTitle %}white{% endblock %}
+
+{% block content %}
+<style>
+    .submit {
+        background-color: #0078FF;
+        border-radius: 2px;
+        border-color: #0078FF;
+        border-style: none;
+        color: white;
+        width: 125px;
+        height: 35px;
+        border-radius: 3px;
+    }
+    .username, .email, .password {
+        margin-bottom: 5px;
+        height: 35px;
+        width: 250px;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+</style>
+
+<center>
+<div class="alert alert-danger hidden" style="width: 25%;" role="alert">
+  Please fill out the form correctly!
+</div>
+
+<form name="register" action="/register/" onsubmit="return validate();" method="post" autocomplete="off">
+    <input type="text" name="username" class="username" placeholder="TheLegend27"><br>
+    <input type="email" name="email" class="email" placeholder="your.email@cool.site"><br>
+    <input type="password" name="password" class="password" placeholder="MySecretPassword"><br>
+    <input type="submit" value="Register" class="submit">
+</form>
+</center>
+
+<script>
+
+    let validate = () => {
+        let form = document.forms["register"];
+        let username = form["username"].value;
+        let email = form["email"].value;
+        let password = form["password"].value;
+
+        if (username == "" || email == "" || password == "") {
+            let error = document.getElementsByClassName("alert-danger")[0];
+            error.classList.remove("hidden")
+            return false
+        }
+
+        return true
+    }
+
+</script>
+</center>
+{% endblock %}

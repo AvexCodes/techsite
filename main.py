@@ -1,6 +1,16 @@
 from flask import Flask, render_template, request, send_file
 
+
+from routers.register import routers
+from routers.login import login
+
 app = Flask(__name__)
+
+
+
+# ROUTES
+app.register_blueprint(routers, url_prefix="/register")
+app.register_blueprint(login, url_prefix="/login")
 
 @app.route('/', methods=["GET"])
 def index_route():
